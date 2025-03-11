@@ -1,0 +1,15 @@
+Important Notes
+1. Update the ChromeDriver path in `config.yaml` to match your system's path
+2. Make sure all files are in their correct locations (HTML template in templates folder)
+3. Install required packages before running
+4. The configuration interface runs on port 5000
+
+To run the project:
+1. Start the configuration interface:
+```bash
+python config_interface.py
+```
+
+2. Run the form automation:
+```bash
+python form_automation.py+

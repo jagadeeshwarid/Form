@@ -1,0 +1,38 @@
+browser:
+  chrome_driver_path: 'D:\ProIT bridge\Jagadeeshwari\My Projects\Form Automation\chromedriver.exe' # Update this path
+  chrome_profile_path: 'C:\Users\ADMIN\AppData\Local\Google\Chrome\User Data\Default'
+
+forms:
+  doubts:
+    - name: "Python Doubts"
+      form_url: "https://docs.google.com/forms/d/e/1FAIpQLSfp4Cv5hh18zygNUVyL4HG3s3YjNeyodJVIfuW7fjOdq4LgIg/viewform"
+      sheet_url: "https://docs.google.com/spreadsheets/d/1W0hFmsUwPYzNfS0Z4Q5eWW3hJF4_ADHff8Sr3DLRr2g/edit?gid=1633822374#gid=1633822374"
+
+    - name: "Portfolio Doubts"
+      form_url: "https://docs.google.com/forms/d/1QDZtYLetdxsg5Z3N2utHrfJ3s0kbXoNCMrufUp_5EvM/edit"
+      sheet_url: "https://docs.google.com/spreadsheets/d/18BGkiwu6KIG-PdzHv7cmLrTO3vkdskUdViVY1QCp-QQ/edit?gid=1789136664#gid=1789136664"
+
+    - name: "Machine Learning Doubts"
+      form_url: "https://docs.google.com/forms/d/1NTqvVwAxjkkUqDBM6ip_LhTZ5wWRxU6rqvcqzJNZH8c/edit"
+      sheet_url: "https://docs.google.com/spreadsheets/d/1pgvGx45SpISv37sU2C37VjcuAjBGAngxA0wpXuPILeU/edit?gid=394514113#gid=394514113"
+
+    - name: "Deeplearning Doubts"
+      form_url: "https://docs.google.com/forms/d/1bqhKuXsgYdh9LubGEfZjvRP2fmTH4IG8mtOZVvf_PIY/edit"
+      sheet_url: "https://docs.google.com/spreadsheets/d/1pJawHJRnGVU_UHdp9iIGW4Ao8IcEAvh8BnLz4O0kCBw/edit?gid=1447172546#gid=1447172546"
+
+    - name: "Statistics Doubts"
+      form_url: "https://docs.google.com/forms/d/1iW95sQclwHQfMMEUZDYNRL3J_Ms1NA6W2uFbyA4Wha0/edit"
+      sheet_url: "https://docs.google.com/spreadsheets/d/1ErgcmFCMS6ORbQzSVzY2KS6BRiZ8N6vr5rtjAkEa_vc/edit?gid=291863812#gid=291863812"
+
+    - name: "SQL Doubts"
+      form_url: "https://docs.google.com/forms/d/1hy-VRpTz36koQ-KQD2wV_SqaKJsYCzooQvv7yVLBxSQ/edit"
+      sheet_url: "https://docs.google.com/spreadsheets/d/12QHBjvxlYS_juRQyDcRlO48W1yf2evl8I_uHB0Vp3Ao/edit?gid=69911782#gid=69911782"
+
+    - name: "Gen AI Doubts"
+      form_url: "https://docs.google.com/forms/d/1e9_HOwM0_OhoTVBghxD2pnziDqccKbVelWojogjI928/edit"
+      sheet_url: "https://docs.google.com/spreadsheets/d/1pY3ig-F5Ic3Vb8eMQh8FBMdyIA-jE3uWGzmsgQU4ijQ/edit?gid=1254327300#gid=1254327300"
+
+  feedback:
+      name: "Feedback"
+      form_url: "https://docs.google.com/forms/d/1GXVel21Qkmvp0sR4AFHPHX4RIBeijG_-7YdbVu6x2Cs/edit"
+      sheet_url: "https://docs.google.com/spreadsheets/d/1FY9fTkFgPimYdnbTzHt6UpDDw19ZIq4B6xvnyDQl7IA/edit?gid=1752180823#gid=1752180823"
