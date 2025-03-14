@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Configuration Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .flash {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .flash.success {
+            background-color: #dff0d8;
+            border-color: #d6e9c6;
+            color: #3c763d;
+        }
+        .flash.error {
+            background-color: #f2dede;
+            border-color: #ebccd1;
+            color: #a94442;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form Configuration Interface</h1>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form action="{{ url_for('update_config') }}" method="post">
+        <h2>Doubts Forms Configuration</h2>
+        {% for form in config.forms.doubts %}
+        <div class="form-group">
+            <h3>Week {{ loop.index }} Configuration</h3>
+            <label for="doubt_form_url_{{ loop.index }}">Form URL:</label>
+            <input type="url" id="doubt_form_url_{{ loop.index }}" 
+                   name="doubt_form_url_{{ loop.index }}" 
+                   value="{{ form.form_url }}" required>
+            
+            <label for="doubt_sheet_url_{{ loop.index }}">Sheet URL:</label>
+            <input type="url" id="doubt_sheet_url_{{ loop.index }}" 
+                   name="doubt_sheet_url_{{ loop.index }}" 
+                   value="{{ form.sheet_url }}" required>
+        </div>
+        {% endfor %}
+
+        <h2>Feedback Form Configuration</h2>
+        <div class="form-group">
+            <label for="feedback_form_url">Form URL:</label>
+            <input type="url" id="feedback_form_url" 
+                   name="feedback_form_url" 
+                   value="{{ config.forms.feedback.form_url }}" required>
+            
+            <label for="feedback_sheet_url">Sheet URL:</label>
+            <input type="url" id="feedback_sheet_url" 
+                   name="feedback_sheet_url" 
+                   value="{{ config.forms.feedback.sheet_url }}" required>
+        </div>
+
+        <button type="submit" class="submit-btn">Save Configuration</button>
+    </form>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Automation Configuration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .submit-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background: #45a049;
+        }
+        .flash-message {
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        .flash-success {
+            background-color: #dff0d8;
+            color: #3c763d;
+        }
+        .flash-error {
+            background-color: #f2dede;
+            color: #a94442;
+        }
+        .form-section {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Form Automation Configuration</h1>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message flash-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <form action="/update" method="post">
+            <h2>Doubts Forms Configuration</h2>
+            
+            {% for i in range(7) %}
+                {% set week_num = i + 1 %}
+                <div class="form-section">
+                    <h3>Week {{ week_num }} Doubts</h3>
+                    
+                    <div class="form-group">
+                        <label for="doubt_form_url_{{ week_num }}">Form URL:</label>
+                        <input type="text" id="doubt_form_url_{{ week_num }}" name="doubt_form_url_{{ week_num }}" 
+                               value="{{ config.forms.doubts[i].form_url if config.forms and config.forms.doubts and config.forms.doubts|length > i else '' }}">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="doubt_sheet_url_{{ week_num }}">Sheet URL:</label>
+                        <input type="text" id="doubt_sheet_url_{{ week_num }}" name="doubt_sheet_url_{{ week_num }}" 
+                               value="{{ config.forms.doubts[i].sheet_url if config.forms and config.forms.doubts and config.forms.doubts|length > i else '' }}">
+                    </div>
+                </div>
+            {% endfor %}
+            
+            <h2>Feedback Form Configuration</h2>
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="feedback_form_url">Form URL:</label>
+                    <input type="text" id="feedback_form_url" name="feedback_form_url" 
+                           value="{{ config.forms.feedback.form_url if config.forms and config.forms.feedback else '' }}">
+                </div>
+                
+                <div class="form-group">
+                    <label for="feedback_sheet_url">Sheet URL:</label>
+                    <input type="text" id="feedback_sheet_url" name="feedback_sheet_url" 
+                           value="{{ config.forms.feedback.sheet_url if config.forms and config.forms.feedback else '' }}">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <button type="submit" class="submit-btn">Save Configuration</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
